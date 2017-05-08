@@ -1,0 +1,18 @@
+﻿#MainContent_txtName {
+    max-width: 100%;
+}
+#MainContent_txtEmail {
+    max-width: 100%;
+}
+#MainContent_txtTelefone {
+    max-width: 100%;
+}
+#MainContent_txtCpf {
+    max-width: 100%;
+}
+#MainContent_txtCnpj {
+    max-width: 100%;
+}
+#body-content {
+    margin-top: 30px;
+}
