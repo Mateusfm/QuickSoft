@@ -66,7 +66,7 @@ namespace Formularios
 
         protected void ButtonEnviar_Click(object sender, EventArgs e)
         {
-            EnviarEmail();
+            //EnviarEmail();
             SalvarRedirecionarUsuario();
   
         }
@@ -154,6 +154,24 @@ namespace Formularios
         }
         #endregion
 
+        protected void HabilitarCnpj(Object sender, EventArgs e)
+        {
+            if (rblPossuiEmpresa.SelectedItem.Text == "Sim")
+            {
+                txtCnpj.Enabled = true;
+                ddlTipoDeEmpresa.Enabled = true;
+                reqCnpj.Enabled = true;
+                lblData.Text = "Data de criação da empresa ";
 
+            }
+            else
+            {
+                txtCnpj.Enabled = false;
+                ddlTipoDeEmpresa.Enabled = false;
+                reqCnpj.Enabled = false;
+                lblData.Text = "Data de nascimento ";
+            }
+
+        }
     }
 }

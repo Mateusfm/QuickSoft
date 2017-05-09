@@ -40,8 +40,7 @@
         <div class="form-group">
             <label for="ddlUf" class="col-lg-2 control-label">Estado</label>
             <div class="col-lg-10">
-                <asp:DropDownList ID="ddlUf" runat="server" CssClass="form-control" 
-                        OnSelectedIndexChanged="ddlUf_SelectedIndexChanged" AutoPostBack="true" />
+                <asp:DropDownList ID="ddlUf" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddlUf_SelectedIndexChanged" AutoPostBack="true" />
             </div>
         </div>
         <div class="form-group">
@@ -54,7 +53,7 @@
           <asp:Label runat="server" AssociatedControlID="rblPossuiEmpresa" CssClass="col-lg-2 control-label">Possui Empresa</asp:Label>
           <div class="col-lg-10">
             <div class="radio">
-               <asp:RadioButtonList ID="rblPossuiEmpresa" runat="server">
+               <asp:RadioButtonList ID="rblPossuiEmpresa" runat="server" OnSelectedIndexChanged="HabilitarCnpj" AutoPostBack="true">
                     <asp:ListItem Selected="True" Value="1">Não</asp:ListItem>
                     <asp:ListItem Value="2" Text="Sim">Sim</asp:ListItem>
                </asp:RadioButtonList>
