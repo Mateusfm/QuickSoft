@@ -31,6 +31,13 @@
                                                     ControlToValidate="txtEmail"
                                                     CssClass="text-danger"  
                                                     ErrorMessage="The email field is required." />
+                        <asp:RegularExpressionValidator ID="regexEmail" runat="server" 
+                                                    ControlToValidate="txtEmail" 
+                                                    ErrorMessage="Informe um Email válido" 
+                                                    Display="Dynamic" 
+                                                    ValidationExpression="^([a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]){1,70}$" 
+                                                    EnableClientScript="False">Email Address is not valid.<br />       
+                        </asp:RegularExpressionValidator>
                     </div>
                 </div>
 
@@ -48,6 +55,9 @@
                     <asp:Label runat="server" AssociatedControlID="txtCpf" CssClass="col-lg-2 control-label">CPF</asp:Label>
                     <div class="col-md-10">
                         <asp:TextBox runat="server" ID="txtCpf" CssClass="form-control" placeholder="999.999.999-99"/>
+                        <asp:RequiredFieldValidator ID="reqCpf" runat="server" CssClass="text-danger"
+                                                    ControlToValidate="txtCpf"
+                                                    ErrorMessage="The CPF field is required."/>
                         <ajaxToolkit:MaskedEditExtender ID="meeCpf" runat="server"
                                                         Mask="999.999.999-99" 
                                                         TargetControlID="txtCpf" />
@@ -75,8 +85,8 @@
                     <div class="col-lg-10">
                         <div class="radio">
                             <asp:RadioButtonList ID="rblPossuiEmpresa" runat="server" 
-                                                OnSelectedIndexChanged="HabilitarCnpj" 
-                                                AutoPostBack="true">
+                                                 OnSelectedIndexChanged="HabilitarCnpj" 
+                                                 AutoPostBack="true">
                                 <asp:ListItem Selected="True" Value="1">Não</asp:ListItem>
                                 <asp:ListItem Value="2" Text="Sim">Sim</asp:ListItem>
                             </asp:RadioButtonList>
@@ -100,7 +110,7 @@
                             <asp:TextBox runat="server" CssClass="form-control" ID="txtCnpj" placeholder="99.999.999/9999-99" Enabled="False" />
                             <asp:RequiredFieldValidator CssClass="text-danger" ID="reqCnpj" runat="server" 
                                                     ControlToValidate="txtCnpj"         
-                                                    ErrorMessage="The CNPJ field is required." />
+                                                    ErrorMessage="The CNPJ field is required." Enabled="False" />
                             <ajaxToolkit:MaskedEditExtender ID="meeCnpj" runat="server"
                                                             TargetControlID="txtCnpj"
                                                             Mask="99.999.999/9999-99" />
