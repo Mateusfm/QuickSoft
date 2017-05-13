@@ -38,6 +38,9 @@
                     <asp:Label runat="server" AssociatedControlID="txtTelefone" CssClass="col-lg-2 control-label">Telefone</asp:Label>
                     <div class="col-lg-10">
                         <asp:TextBox runat="server" class="form-control" ID="txtTelefone" placeholder="(99) 99999-9999" />
+                        <ajaxToolkit:MaskedEditExtender runat="server" ID="meeTelefone" 
+                                                        TargetControlID="txtTelefone" 
+                                                        Mask="(99) 99999-9999" />
                   </div>
                 </div>
 
@@ -45,10 +48,9 @@
                     <asp:Label runat="server" AssociatedControlID="txtCpf" CssClass="col-lg-2 control-label">CPF</asp:Label>
                     <div class="col-md-10">
                         <asp:TextBox runat="server" ID="txtCpf" CssClass="form-control" placeholder="999.999.999-99"/>
-                        <asp:RequiredFieldValidator runat="server" 
-                                                    ControlToValidate="txtCpf"
-                                                    CssClass="text-danger" 
-                                                    ErrorMessage="The CPF field is required." />
+                        <ajaxToolkit:MaskedEditExtender ID="meeCpf" runat="server"
+                                                        Mask="999.999.999-99" 
+                                                        TargetControlID="txtCpf" />
                     </div>
                 </div>
 
@@ -95,11 +97,13 @@
                 <div class="form-group">
                     <asp:Label runat="server" AssociatedControlID="txtCnpj" CssClass="col-lg-2 control-label">CNPJ</asp:Label>
                         <div class="col-lg-10">
-                            <asp:TextBox runat="server" CssClass="form-control" ID="txtCnpj" placeholder="99999-9999" Enabled="False" />
+                            <asp:TextBox runat="server" CssClass="form-control" ID="txtCnpj" placeholder="99.999.999/9999-99" Enabled="False" />
                             <asp:RequiredFieldValidator CssClass="text-danger" ID="reqCnpj" runat="server" 
-                                                    ControlToValidate="txtCnpj" 
-                                                    ErrorMessage="The CNPJ field ir required." 
-                                                    Enabled="False" />
+                                                    ControlToValidate="txtCnpj"         
+                                                    ErrorMessage="The CNPJ field is required." />
+                            <ajaxToolkit:MaskedEditExtender ID="meeCnpj" runat="server"
+                                                            TargetControlID="txtCnpj"
+                                                            Mask="99.999.999/9999-99" />
                        </div>
                 </div>
 

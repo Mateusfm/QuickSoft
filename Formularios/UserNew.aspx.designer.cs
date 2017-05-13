@@ -49,6 +49,15 @@ namespace Formularios {
         protected global::System.Web.UI.WebControls.TextBox txtTelefone;
         
         /// <summary>
+        /// Controle meeTelefone.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::AjaxControlToolkit.MaskedEditExtender meeTelefone;
+        
+        /// <summary>
         /// Controle txtCpf.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace Formularios {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCpf;
+        
+        /// <summary>
+        /// Controle meeCpf.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::AjaxControlToolkit.MaskedEditExtender meeCpf;
         
         /// <summary>
         /// Controle ddlUf.
@@ -128,6 +146,15 @@ namespace Formularios {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator reqCnpj;
+        
+        /// <summary>
+        /// Controle meeCnpj.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::AjaxControlToolkit.MaskedEditExtender meeCnpj;
         
         /// <summary>
         /// Controle labelTipoDeEmpresa.
