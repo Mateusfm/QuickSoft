@@ -19,7 +19,7 @@ namespace Formularios
         {
             IniciarDropDownEstadoCidade();
         }
-
+        //Carregar estados e cidades no formulario.
         #region SelectedIndexChanged Estados e cidade
 
         private void IniciarDropDownEstadoCidade()
