@@ -99,7 +99,7 @@ namespace Formularios
 
         protected void EnviarEmail()
         {
-            string remetenteEmail = "mateusfm95@gmail.com";
+            string remetenteEmail = "exemplo95@gmail.com";
             MailMessage mail = new MailMessage();
             mail.To.Add(txtEmail.Text);
             mail.From = new MailAddress(remetenteEmail, "Mateus", System.Text.Encoding.UTF8);
@@ -111,7 +111,7 @@ namespace Formularios
             mail.Priority = MailPriority.High;
 
             SmtpClient client = new SmtpClient();
-            client.Credentials = new System.Net.NetworkCredential(remetenteEmail, "github95");
+            client.Credentials = new System.Net.NetworkCredential(remetenteEmail, "password");
 
             client.Port = 587;
             client.Host = "smtp.gmail.com";
