@@ -18,8 +18,9 @@ namespace Formularios
 
         public IQueryable<User> GetUsers([QueryString("id")] int? cityId)
         {
-            var _db = new Formularios.Models.UserContext();
+            var _db                = new Formularios.Models.UserContext();
             IQueryable<User> query = _db.Users;
+
             return query;
         }
     }

@@ -18,8 +18,9 @@ namespace Formularios
 
         public IQueryable<User> GetUser([QueryString("userID")] int? UserId)
         {
-            var _db = new Formularios.Models.UserContext();
+            var _db                = new Formularios.Models.UserContext();
             IQueryable<User> query = _db.Users;
+
             if (UserId.HasValue && UserId > 0)
             {
                 query = query.Where(p => p.UserID == UserId);
@@ -28,6 +29,7 @@ namespace Formularios
             {
                 query = null;
             }
+
             return query;
         }
     }

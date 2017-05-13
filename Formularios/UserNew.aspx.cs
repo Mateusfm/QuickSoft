@@ -66,7 +66,7 @@ namespace Formularios
 
         protected void ButtonEnviar_Click(object sender, EventArgs e)
         {
-            //EnviarEmail();
+            EnviarEmail();
             SalvarRedirecionarUsuario();
   
         }

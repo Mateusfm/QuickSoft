@@ -22,6 +22,15 @@ namespace Formularios {
         protected global::System.Web.UI.WebControls.TextBox txtName;
         
         /// <summary>
+        /// Controle regexpName.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regexpName;
+        
+        /// <summary>
         /// Controle txtEmail.
         /// </summary>
         /// <remarks>
