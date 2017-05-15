@@ -13,8 +13,6 @@ namespace Formularios
 {
     public partial class UserNew : System.Web.UI.Page
     {
-
-
         protected void Page_Load(object sender, EventArgs e)
         {
             IniciarDropDownEstadoCidade();
@@ -99,7 +97,7 @@ namespace Formularios
 
         protected void EnviarEmail()
         {
-            string remetenteEmail = "exemplo95@gmail.com";
+            string remetenteEmail = "exemplo@gmail.com";
             MailMessage mail = new MailMessage();
             mail.To.Add(txtEmail.Text);
             mail.From = new MailAddress(remetenteEmail, "Mateus", System.Text.Encoding.UTF8);

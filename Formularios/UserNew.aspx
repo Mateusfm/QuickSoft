@@ -26,18 +26,16 @@
                 <div class="form-group">
                   <asp:Label runat="server" AssociatedControlID="txtEmail" CssClass="col-lg-2 control-label">Email</asp:Label>
                     <div class="col-lg-10">
-                        <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control" placeholder="Email" />
+                        <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control" placeholder="exemplo@exemplo.br" />
                         <asp:RequiredFieldValidator runat="server" 
                                                     ControlToValidate="txtEmail"
                                                     CssClass="text-danger"  
                                                     ErrorMessage="The email field is required." />
-                        <asp:RegularExpressionValidator ID="regexEmail" runat="server" 
+                        <asp:RegularExpressionValidator ID="regexEmail" runat="server" CssClass="text-danger"
                                                     ControlToValidate="txtEmail" 
                                                     ErrorMessage="Informe um Email válido" 
                                                     Display="Dynamic" 
-                                                    ValidationExpression="^([a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]){1,70}$" 
-                                                    EnableClientScript="False">Email Address is not valid.<br />       
-                        </asp:RegularExpressionValidator>
+                                                    ValidationExpression="^([a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]){1,70}$" />
                     </div>
                 </div>
 
