@@ -19,9 +19,9 @@
                         <br />
                         <span><b>CNPJ:</b>&nbsp;<%#:Item.Cnpj %></span>
                         <br />
-                        <span><b>Data:</b>&nbsp;<%#:Item.Data %></span>
-                        <br />
                         <span><b>Tipo empresa:</b>&nbsp;<%#:Item.TypeCompany %></span>
+                        <br />
+                        <span><b>Data:</b>&nbsp;<%#:Item.Data %></span>
                         <br />
                         <span><b>Cidade:</b>&nbsp;<%#:Item.City.CityName %></span>
                         <br />

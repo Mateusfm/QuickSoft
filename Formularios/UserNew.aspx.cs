@@ -25,12 +25,12 @@ namespace Formularios
             // Carregar DropDownList de estado atravéz do banco de dados
             if (!Page.IsPostBack)
             {
-                UserContext bd = new UserContext();
+                UserContext bd       = new UserContext();
 
-                ddlUf.DataSource = (from c in bd.Ufs orderby c.UfName select c).ToList();
+                ddlUf.DataSource     = (from c in bd.Ufs orderby c.UfName select c).ToList();
 
                 ddlUf.DataValueField = "UfID";
-                ddlUf.DataTextField = "UfName";
+                ddlUf.DataTextField  = "UfName";
 
                 ddlUf.DataBind();
 
@@ -49,12 +49,12 @@ namespace Formularios
 
         protected void CarregarDropDownListCidade(int p)
         {
-            UserContext bd = new UserContext();
-            ddlCidade.DataSource = (from cidade in bd.Cities orderby cidade.CityName 
-                                    where cidade.UfID == p select cidade).ToList();
+            UserContext bd           = new UserContext();
+            ddlCidade.DataSource     = (from cidade in bd.Cities orderby cidade.CityName 
+                                        where cidade.UfID == p select cidade).ToList();
 
             ddlCidade.DataValueField = "CityID";
-            ddlCidade.DataTextField = "CityName";
+            ddlCidade.DataTextField  = "CityName";
 
             ddlCidade.DataBind();
         }
@@ -69,6 +69,11 @@ namespace Formularios
   
         }
 
+        private bool UsuarioPossuiEmpresa()
+        {
+            return rblPossuiEmpresa.SelectedItem.Text == "Sim" ? true : false;
+        }
+
         private void SalvarRedirecionarUsuario()
         {
             var userContext = new UserContext();
@@ -77,15 +82,15 @@ namespace Formularios
 
             var usuario = new User
             {
-                UserName = txtName.Text,
-                Email = txtEmail.Text,
-                Phone = txtTelefone.Text,            
-                Cpf = txtCpf.Text,
-                UfID = int.Parse(ddlUf.SelectedValue),
-                CityID = int.Parse(ddlCidade.SelectedValue),
-                Data = Convert.ToDateTime(txtDate.Text),
-                Cnpj = txtCnpj.Text,
-                TypeCompany = ddlTipoDeEmpresa.SelectedItem.Text,
+                UserName    = txtName.Text,
+                Email       = txtEmail.Text,
+                Phone       = txtTelefone.Text,            
+                Cpf         = txtCpf.Text,
+                UfID        = int.Parse(ddlUf.SelectedValue),
+                CityID      = int.Parse(ddlCidade.SelectedValue),
+                Data        = Convert.ToDateTime(txtDate.Text),
+                Cnpj        = UsuarioPossuiEmpresa() ? txtCnpj.Text : "",
+                TypeCompany = UsuarioPossuiEmpresa() ? ddlTipoDeEmpresa.SelectedItem.Text : "",
                 Observacoes = txtArea.Text,
             };
 
@@ -98,18 +103,18 @@ namespace Formularios
         protected void EnviarEmail()
         {
             string remetenteEmail = "exemplo@gmail.com";
-            MailMessage mail = new MailMessage();
+            MailMessage mail      = new MailMessage();
             mail.To.Add(txtEmail.Text);
-            mail.From = new MailAddress(remetenteEmail, "Mateus", System.Text.Encoding.UTF8);
-            mail.Subject = "Dados de Cadastro";
-            mail.SubjectEncoding = System.Text.Encoding.UTF8;
-            mail.Body = RetornaHtmlDadosFormulário();
-            mail.BodyEncoding = System.Text.Encoding.UTF8;
-            mail.IsBodyHtml = true;
-            mail.Priority = MailPriority.High;
+            mail.From             = new MailAddress(remetenteEmail, "Mateus", System.Text.Encoding.UTF8);
+            mail.Subject          = "Dados de Cadastro";
+            mail.SubjectEncoding  = System.Text.Encoding.UTF8;
+            mail.Body             = RetornaHtmlDadosFormulário();
+            mail.BodyEncoding     = System.Text.Encoding.UTF8;
+            mail.IsBodyHtml       = true;
+            mail.Priority         = MailPriority.High;
 
-            SmtpClient client = new SmtpClient();
-            client.Credentials = new System.Net.NetworkCredential(remetenteEmail, "password");
+            SmtpClient client     = new SmtpClient();
+            client.Credentials    = new System.Net.NetworkCredential(remetenteEmail, "password");
 
             client.Port = 587;
             client.Host = "smtp.gmail.com";
@@ -137,7 +142,7 @@ namespace Formularios
                   "<br><strong>Data: </strong>" + txtDate.Text +
                   "<br><strong>CPF: </strong>" + txtCpf.Text;
 
-            if (txtCnpj.Text != "")
+            if (UsuarioPossuiEmpresa())
             {
                 str += "<br><strong>CNPJ: </strong>" + txtCnpj.Text +
                     "<br><strong>Tipo: </strong>" + ddlTipoDeEmpresa.SelectedItem.Text;
