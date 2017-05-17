@@ -10,7 +10,9 @@
                 <div class="form-group">
                     <asp:Label runat="server" AssociatedControlID="txtName" CssClass="col-lg-2 control-label">Nome</asp:Label>
                     <div class="col-lg-10">
-                        <asp:TextBox runat="server" ID="txtName" CssClass="form-control" placeholder="Name" />
+                        <asp:TextBox runat="server" ID="txtName" 
+                                                    CssClass="form-control"     
+                                                    placeholder="Name" />
                         <asp:RequiredFieldValidator runat="server" 
                                                     ControlToValidate="txtName"
                                                     CssClass="text-danger"                                                          
@@ -26,7 +28,9 @@
                 <div class="form-group">
                   <asp:Label runat="server" AssociatedControlID="txtEmail" CssClass="col-lg-2 control-label">Email</asp:Label>
                     <div class="col-lg-10">
-                        <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control" placeholder="exemplo@exemplo.br" />
+                        <asp:TextBox runat="server" ID="txtEmail" 
+                                                    CssClass="form-control" 
+                                                    placeholder="exemplo@exemplo.br" />
                         <asp:RequiredFieldValidator runat="server" 
                                                     ControlToValidate="txtEmail"
                                                     CssClass="text-danger"  
@@ -42,7 +46,9 @@
                 <div class="form-group">
                     <asp:Label runat="server" AssociatedControlID="txtTelefone" CssClass="col-lg-2 control-label">Telefone</asp:Label>
                     <div class="col-lg-10">
-                        <asp:TextBox runat="server" class="form-control" ID="txtTelefone" placeholder="(99) 99999-9999" />
+                        <asp:TextBox runat="server" class="form-control"    
+                                                        ID="txtTelefone" 
+                                                        placeholder="(99) 99999-9999" />
                         <ajaxToolkit:MaskedEditExtender runat="server" ID="meeTelefone" 
                                                         TargetControlID="txtTelefone" 
                                                         Mask="(99) 99999-9999" />
@@ -57,8 +63,8 @@
                                                     ControlToValidate="txtCpf"
                                                     ErrorMessage="The CPF field is required."/>
                         <ajaxToolkit:MaskedEditExtender ID="meeCpf" runat="server"
-                                                        Mask="999.999.999-99" 
-                                                        TargetControlID="txtCpf" />
+                                                    Mask="999.999.999-99" 
+                                                    TargetControlID="txtCpf" />
                     </div>
                 </div>
 
@@ -85,7 +91,7 @@
                             <asp:RadioButtonList ID="rblPossuiEmpresa" runat="server" 
                                                  OnSelectedIndexChanged="HabilitarCnpj" 
                                                  AutoPostBack="true">
-                                <asp:ListItem Selected="True" Value="1">Não</asp:ListItem>
+                                <asp:ListItem Value="1" Selected="True">Não</asp:ListItem>
                                 <asp:ListItem Value="2" Text="Sim">Sim</asp:ListItem>
                             </asp:RadioButtonList>
                        </div>
@@ -105,10 +111,14 @@
                 <div class="form-group">
                     <asp:Label runat="server" AssociatedControlID="txtCnpj" CssClass="col-lg-2 control-label">CNPJ</asp:Label>
                         <div class="col-lg-10">
-                            <asp:TextBox runat="server" CssClass="form-control" ID="txtCnpj" placeholder="99.999.999/9999-99" Enabled="False" />
+                            <asp:TextBox runat="server" CssClass="form-control" 
+                                                            ID="txtCnpj" 
+                                                            placeholder="99.999.999/9999-99" 
+                                                            Enabled="False" />
                             <asp:RequiredFieldValidator CssClass="text-danger" ID="reqCnpj" runat="server" 
-                                                    ControlToValidate="txtCnpj"         
-                                                    ErrorMessage="The CNPJ field is required." Enabled="False" />
+                                                            ControlToValidate="txtCnpj"         
+                                                            ErrorMessage="The CNPJ field is required." 
+                                                            Enabled="False" />
                             <ajaxToolkit:MaskedEditExtender ID="meeCnpj" runat="server"
                                                             TargetControlID="txtCnpj"
                                                             Mask="99.999.999/9999-99" />

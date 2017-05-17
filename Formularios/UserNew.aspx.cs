@@ -78,26 +78,35 @@ namespace Formularios
         {
             var userContext = new UserContext();
 
-            userContext.Database.CreateIfNotExists();
-
-            var usuario = new User
+            try
             {
-                UserName    = txtName.Text,
-                Email       = txtEmail.Text,
-                Phone       = txtTelefone.Text,            
-                Cpf         = txtCpf.Text,
-                UfID        = int.Parse(ddlUf.SelectedValue),
-                CityID      = int.Parse(ddlCidade.SelectedValue),
-                Data        = Convert.ToDateTime(txtDate.Text),
-                Cnpj        = UsuarioPossuiEmpresa() ? txtCnpj.Text : "",
-                TypeCompany = UsuarioPossuiEmpresa() ? ddlTipoDeEmpresa.SelectedItem.Text : "",
-                Observacoes = txtArea.Text,
-            };
+                userContext.Database.CreateIfNotExists();
 
-            userContext.Users.Add(usuario);
-            userContext.SaveChanges();
+                var usuario = new User
+                {
+                    UserName    = txtName.Text,
+                    Email       = txtEmail.Text,
+                    Phone       = txtTelefone.Text,            
+                    Cpf         = txtCpf.Text,
+                    UfID        = int.Parse(ddlUf.SelectedValue),
+                    CityID      = int.Parse(ddlCidade.SelectedValue),
+                    Data        = Convert.ToDateTime(txtDate.Text),
+                    Cnpj        = UsuarioPossuiEmpresa() ? txtCnpj.Text : "",
+                    TypeCompany = UsuarioPossuiEmpresa() ? ddlTipoDeEmpresa.SelectedItem.Text : "",
+                    Observacoes = txtArea.Text,
+                };
 
-            Response.Redirect("UserDetails.aspx?userID=" + usuario.UserID);
+                userContext.Users.Add(usuario);
+                userContext.SaveChanges();
+
+                Response.Redirect("UserDetails.aspx?userID=" + usuario.UserID);
+            }
+            catch (Exception ex)
+            {
+
+                respostaEnvioLabel.Text    = "Código do erro" + ex;
+                respostaEnvioLabel.Visible = true;
+            }
         }
 
         protected void EnviarEmail()
@@ -122,12 +131,12 @@ namespace Formularios
             try
             {
                 client.Send(mail);
-                respostaEnvioLabel.Text = "Envio do E-mail com sucesso";
+                respostaEnvioLabel.Text    = "Envio do E-mail com sucesso";
                 respostaEnvioLabel.Visible = true;
             }
             catch (Exception ex)
             {
-                respostaEnvioLabel.Text = "Ocorreu um erro ao enviar:" + ex.Message;
+                respostaEnvioLabel.Text    = "Ocorreu um erro ao enviar:" + ex.Message;
                 respostaEnvioLabel.Visible = true;
             }
         }
