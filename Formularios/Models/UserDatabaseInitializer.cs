@@ -11,9 +11,9 @@ namespace Formularios.Models
         protected override void Seed(UserContext context)
         {   
             // Adiciona dados no banco em tempo de execução
-            GetUfs().ForEach(uf => context.Ufs.Add(uf));
+            GetUfs().ForEach(uf      => context.Ufs.Add(uf));
             GetCities().ForEach(city => context.Cities.Add(city));
-            GetUsers().ForEach(user => context.Users.Add(user));
+            GetUsers().ForEach(user  => context.Users.Add(user));
 
         }
 
@@ -21,20 +21,20 @@ namespace Formularios.Models
         {
             var users = new List<User> {
                 new User {
-                    UserName = "Mateus",
-                    Data = DateTime.Now,
-                    Email = "mateusmartins1995@hotmail.com",
-                    Cpf = "098.455.132-97",
-                    CityID = 1,
-                    UfID = 1,
+                    UserName = "João",
+                    Data     = DateTime.Now,
+                    Email    = "joao@hotmail.com",
+                    Cpf      = "098.455.132-97",
+                    CityID   = 1,
+                    UfID     = 1,
                 },
                 new User {
                     UserName = "Marcos",
-                    Data = DateTime.Now,
-                    Email = "mateusmartins1995@hotmail.com",
-                    Cpf = "098.455.162-97",
-                    CityID = 3,
-                    UfID = 2,
+                    Data     = DateTime.Now,
+                    Email    = "marcos@hotmail.com",
+                    Cpf      = "098.455.162-97",
+                    CityID   = 3,
+                    UfID     = 2,
                 }
             };
             return users;
@@ -46,24 +46,24 @@ namespace Formularios.Models
             var cities = new List<City>
             {
                 new City{
-                    CityID = 1,
+                    CityID   = 1,
                     CityName = "Blumenau",
-                    UfID = 1,
+                    UfID     = 1,
                 },
                 new City{
-                    CityID = 2,
+                    CityID   = 2,
                     CityName = "Joinville",
-                    UfID = 1,
+                    UfID     = 1,
                 },
                 new City{
-                    CityID = 3,
+                    CityID   = 3,
                     CityName = "Curitiba",
-                    UfID = 2,
+                    UfID     = 2,
                 },
                  new City{
-                    CityID = 4,
+                    CityID   = 4,
                     CityName = "Cascavel",
-                    UfID = 2,
+                    UfID     = 2,
                 },
 
             };
@@ -76,11 +76,11 @@ namespace Formularios.Models
             var ufs = new List<Uf>
             {
                 new Uf{
-                    UfID = 1,
+                    UfID   = 1,
                     UfName = "Santa Catarina"
                 },
                 new Uf{
-                    UfID = 2,
+                    UfID   = 2,
                     UfName = "Paraná"
                 }
             };
